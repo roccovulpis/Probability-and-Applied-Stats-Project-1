@@ -235,7 +235,7 @@ public class StatsLibrary {
 		return probOfAGivenB;
 	}
 
-	//Bayes Theorem Method 
+	// Bayes Theorem Method 
 	public double findBayesTheorem(double probOfBGivenA, double probOfA, double probOfB) {
 
 		double probOfAGivenB = (probOfBGivenA * probOfA) / probOfB;
@@ -243,13 +243,23 @@ public class StatsLibrary {
 		return probOfAGivenB;
 	}
 
-	//	// Determining Independence Method
-	//		public boolean determineIndependence(double probOfA, double probOfB, double probOfAandB) {
-	//
-	//		
-	//
-	//			return dependence;
-	//		}
+	// Determining Independence Method
+	public boolean determineIndependence(double probOfA, double probOfB, double probOfAandB, 
+			double probOfAGivenB, double probOfBGivenA) {
+
+		
+		if(probOfA * probOfB == probOfAandB) {
+			return true;
+		}
+		if(probOfA == probOfAGivenB) {
+			return true;
+		}
+		if(probOfB == probOfBGivenA) {
+			return true;
+		}
+
+		return false;
+	}
 
 	// Binomial method
 	public double findBinomial(int n, double p, int x) {
@@ -275,22 +285,24 @@ public class StatsLibrary {
 		return variance;
 	}
 
-	//Geometric Method
+	// Geometric Method
 	public double findGeometric(int n, double p) {
 		double geometricDistribution = p * Math.pow(1 - p, n - 1);
 		return geometricDistribution;
 	}
-	
+
+	// Expected Geometric Method
 	public double findExpectedGeometric(double p) {
 		return 1/p;
 	}
-	
+
+	// Variance Geometric Method
 	public double findVarianceGeometric(double p) {
 		double variance = (1-p)/Math.pow(p, 2);
 		return variance;
 	}
 
-	//Hypergeometric Method
+	// Hypergeometric Method
 	public BigInteger findHypergeometric(int N, int K, int n, int k) {
 
 		BigInteger factorialOfK = findFactorial(K);
@@ -312,17 +324,19 @@ public class StatsLibrary {
 
 		return hypergeometricDistribution;
 	}
-	
+
+	// Expected Hypergeometric Method
 	public double findExpectedHGD(int n, int r, int N) {
 		return (n*r)/(double)N;
 	}
-	
+
+	// Variance Hypergeometric Method
 	public double findVarianceHGD(int n, int r, int N) {
 		double variance = (n)*(r/N)*((N-r)/(N))*((N-n)/(N-1));
 		return variance;
 	}
 
-	//Poisson Method
+	// Poisson Method
 	public double findPoisson(double l, int x) {
 
 		double e = 2.718281828459045;
@@ -333,9 +347,32 @@ public class StatsLibrary {
 		return poisson;
 	}
 
-	//	public double findNegativeBinomial() {
-	//		
-	//	}
+	// Negative Binomial Method
+	public double findNegativeBinomial(int y, int r, double p) {
+
+		double q = 1-p;
+		int YMinusOne = y-1;
+		int RMinusOne = r-1;
+		int YMinusR = y-r;
+		BigInteger YChooseR = findCombination(YMinusOne, RMinusOne);
+
+		double pRaisedToR = Math.pow(p, r);
+		double qRaisedToYMinusR = Math.pow(q, YMinusR);
+
+		double negativeBinomial = YChooseR.doubleValue() * pRaisedToR * qRaisedToYMinusR;
+		return negativeBinomial;
+	}
+
+	// Expected Negative Binomial Method
+	public double findExpectedNBD(int r, double p) {
+		return (r)/(p);
+	}
+
+	// Variance Negative Binomial Method
+	public double findVarianceNBD(int r, double p) {
+		double variance = (r*(1-p))/(Math.pow(p, 2));
+		return variance;
+	}
 
 	//Chebyshev Method
 	public double findChebyshev(int k) {
