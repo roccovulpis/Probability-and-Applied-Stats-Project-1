@@ -5,7 +5,7 @@
  * geometric, hypergeometric, Poisson, and Chebyshev.
  * 
  * @author Rocco Vulpis
- * @version 10/30/23
+ * @version 3/7/24
  */
 import java.math.BigInteger;
 import java.util.ArrayList;
