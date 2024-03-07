@@ -1,4 +1,5 @@
 Stats Library includes all of the formulas that were covered in chapters 1-3. <br />
+<br />
 These formulas include: <br />
 &ensp;Standard Deviation and Variance. <br />
 &ensp;Central Tendancies :  Mean Median Mode <br />
