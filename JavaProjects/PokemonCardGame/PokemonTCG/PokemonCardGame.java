@@ -69,8 +69,6 @@ public class PokemonCardGame {
 
 	public void run() {
 		setUpGame();
-		while (playerOne.getPrizePile().size() > 0 || playerTwo.getPrizePile().size() > 0){
-
-		}
+		
 	}
 }
