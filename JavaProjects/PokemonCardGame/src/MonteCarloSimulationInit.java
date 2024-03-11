@@ -18,13 +18,16 @@ public class MonteCarloSimulationInit {
 		deckSize = 60;
 	}
 
-	public void initilizeDeck(int numberOfPokemonCards, int numberOfEnergyCards) {
+	public void initilizeDeck(int numberOfPokemonCards, int numberOfEnergyCards, int numberOfRareCandyCards) {
 		deck.clear();
 		for(int i = 0; i < numberOfPokemonCards; i++) {
 			deck.add(new Pokemon("default pokemon"));
 		}
 		for(int i = 0; i < numberOfEnergyCards; i++) {
 			deck.add(new Energy("default energy"));
+		}
+		for(int i = 0; i < numberOfRareCandyCards; i++) {
+			deck.add(new RareCandy());
 		}
 		Collections.shuffle(deck);
 	}
@@ -42,6 +45,12 @@ public class MonteCarloSimulationInit {
 			hand.add(drawCard());
 		}
 	}
+	
+	public void drawPrizePile() {
+		for(int i = 0; i < 6; i++) {
+			prizePile.add(drawCard());
+		}
+	}
 
 	public boolean evaluateOpeningHand() {
 	    for(int i = 0; i < hand.size(); i++) {
@@ -52,10 +61,22 @@ public class MonteCarloSimulationInit {
 	    }
 	    return false;
 	}
+	
+	public boolean evaluateOpeningPrizePile() {
+	    for(int i = 0; i < prizePile.size(); i++) {
+	        Card currentCard = prizePile.get(i);
+	        if(currentCard instanceof RareCandy) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
 
 	public void resetDeck() {
 		deck.addAll(hand);
+		deck.addAll(prizePile);
 		hand.clear();
+		prizePile.clear();
 		Collections.shuffle(deck);
 	}
 
