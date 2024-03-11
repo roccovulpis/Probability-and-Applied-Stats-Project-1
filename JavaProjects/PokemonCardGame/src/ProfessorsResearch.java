@@ -1,12 +1,26 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Represents the Professor's Research Trainer card. 
+ * This card allows the player to discard their current hand and draw a new hand of seven cards from their deck.
+ * 
+ * This class extends the Trainer class and implements the TrainerAction interface
+ * to create the specific playable action of discarding and drawing cards.
+ */
 public class ProfessorsResearch extends Trainer implements TrainerAction {
 
 	public ProfessorsResearch(String name) {
 		super("Professor's Research");
 	}
 	
+	/**
+     * Executes the action of Professor's Research. When this card is played the player's
+     * current hand is discarded and a new hand of seven cards is drawn from the deck. 
+     * This method modifies both the player's hand and deck.
+     * 
+     * @param player The player who plays Professor's Research card.
+     */
 	@Override
 	public void playable(Player player) {
 		ArrayList<Card> deck = player.getDeck();
