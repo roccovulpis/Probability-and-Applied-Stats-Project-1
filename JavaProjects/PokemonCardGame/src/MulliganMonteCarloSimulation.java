@@ -24,9 +24,9 @@ public class MulliganMonteCarloSimulation extends MonteCarloSimulationInit{
 	private double percentageOfGoodHands;
 
 	/**
-     * Constructor that initializes the deck and hand as empty lists, sets the initial deck size to 60,
-     * and initializes the list to hold hand probabilities.
-     */
+	 * Constructor that initializes the deck and hand as empty lists, sets the initial deck size to 60,
+	 * and initializes the list to hold hand probabilities.
+	 */
 	public MulliganMonteCarloSimulation() {
 		deck = new ArrayList<Card>();
 		hand = new ArrayList<Card>();
@@ -36,11 +36,11 @@ public class MulliganMonteCarloSimulation extends MonteCarloSimulationInit{
 	}
 
 	/**
-     * Simulates drawing multiple hands from the deck to calculate the probability
-     * of getting a good hand depending on the deck composition.
-     *
-     * @param numberOfRuns the number of simulation runs for each deck composition.
-     */
+	 * Simulates drawing multiple hands from the deck to calculate the probability
+	 * of getting a good hand depending on the deck composition.
+	 *
+	 * @param numberOfRuns the number of simulation runs for each deck composition.
+	 */
 	public void drawMultipleHands(int numberOfRuns) {
 		// Starting number of Pokemon cards. 
 		int numberOfPokemonCards = 1;
@@ -70,19 +70,19 @@ public class MulliganMonteCarloSimulation extends MonteCarloSimulationInit{
 	}
 
 	/**
-     * Prints the probabilities of having a valid starting hand for each deck composition.
-     */
+	 * Prints the probabilities of having a valid starting hand for each deck composition.
+	 */
 	public void printProbabilites() {
 		for (int i = 0; i < deckSize; i++) {
 			System.out.println("With " + (i+1)  + " Pokemon in the deck, the probability of having a valid starting hand is: "
-		                        + handProbabilities.get(i) + "%");
+					+ handProbabilities.get(i) + "%");
 		}
 	}
 
 	/**
-     * Writes the calculated probabilities to a CSV file named "Mulligan_Probabilties.csv".
-     * Each line in the file contains the probability of drawing a good hand for a specific deck composition.
-     */
+	 * Writes the calculated probabilities to a CSV file named "Mulligan_Probabilties.csv".
+	 * Each line in the file contains the probability of drawing a good hand for a specific deck composition.
+	 */
 	public void writeToFile() {
 
 		String header = "Probabilities";
@@ -105,11 +105,11 @@ public class MulliganMonteCarloSimulation extends MonteCarloSimulationInit{
 	}
 
 	/**
-     * Runs the simulation for a specified number of runs, prints the results to standard output,
-     * and writes the results to a file.
-     *
-     * @param numberOfRuns the number of simulation runs to perform.
-     */
+	 * Runs the simulation for a specified number of runs, prints the results,
+	 * and writes the results to a file.
+	 *
+	 * @param numberOfRuns the number of simulation runs to perform.
+	 */
 	public void run(int numberOfRuns) {
 		drawMultipleHands(numberOfRuns);
 		printProbabilites();
