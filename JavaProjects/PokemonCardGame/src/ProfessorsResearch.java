@@ -7,6 +7,9 @@ import java.util.Random;
  * 
  * This class extends the Trainer class and implements the TrainerAction interface
  * to create the specific playable action of discarding and drawing cards.
+ * 
+ * @author Rocco Vulpis
+ * @version 3/7/2024
  */
 public class ProfessorsResearch extends Trainer implements TrainerAction {
 
