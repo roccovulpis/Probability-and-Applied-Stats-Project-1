@@ -51,7 +51,7 @@ public class RareCandyMonteCarloSimulation extends MonteCarloSimulationInit{
 		// Starting number of Pokemon cards. 
 		int numberOfPokemonCards = 20;
 		// Starting number of Energy cards. 
-		int numberOfEnergyCards = 59;
+		int numberOfEnergyCards = 39;
 		// Starting number of Rare Candy cards. 
 		int numberOfRareCandyCards = 1;
 		for (int i = 0; i < 4; i++) {
